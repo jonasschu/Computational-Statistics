@@ -39,4 +39,6 @@ print(mean(mu_cover))
 
 mean(mu_cover)
 ```
-Our first returns 
+
+
+I switched to classical R for the rest of the exercise.
