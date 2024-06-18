@@ -1,0 +1,42 @@
+---
+title: "Exercise Bootstrap"
+output: html_notebook
+---
+
+In this exercise I will implement Exercise 3 of the bootstrap chapter in the Computational Statistics class by Prof. Liebl at Uni Bonn.
+
+We have derived the classic confidence interval as 
+\(P=\bar{X}_n - z_{\frac{\alpha}{2}}*\frac{\sigma}{\sqrt{n}}\seq \mu \leq \bar{X}_n + z_{\frac{\alpha}{2}}*\frac{\sigma}{\sqrt{n}}\\)
+
+Outline:
+1. Draw random sample from the corresponding distribution, 
+2. Estimate confidence interval,
+3. Check if true \mu is in CI,
+4. Repeat m-many times in Monte Carlo Simulation 
+
+```{r}
+knitr::opts_chunk$set(echo = FALSE)
+
+mu <- 1
+m <- 10000
+n <- 20
+mu_cover <- matrix(NA, nrow=m, ncol=1)
+contains_mu <- function(lower,upper,mu=1) {
+  if (lower <= mu && upper >= mu)
+    {return(1)
+    } else{return(0)}
+}
+
+for(b in 1:m){
+  sample <- rnorm(n,mean=1,sd=2)
+  lower_bound <- mean(sample)+qnorm(0.025)*sd(sample)/sqrt(n)
+  upper_bound <- mean(sample)+qnorm(0.975)*sd(sample)/sqrt(n)
+  mu_cover[b,1] <- contains_mu(lower_bound, upper_bound,mu=1)
+}
+print(mean(mu_cover))
+```
+```{r}
+
+mean(mu_cover)
+```
+Our first returns 
