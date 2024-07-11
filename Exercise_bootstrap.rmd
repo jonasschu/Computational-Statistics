@@ -6,16 +6,17 @@ output: html_notebook
 In this exercise I will implement Exercise 3 of the bootstrap chapter in the Computational Statistics class by Prof. Liebl at Uni Bonn.
 
 We have derived the classic confidence interval as 
-\(P=\bar{X}_n - z_{\frac{\alpha}{2}}*\frac{\sigma}{\sqrt{n}}\seq \mu \leq \bar{X}_n + z_{\frac{\alpha}{2}}*\frac{\sigma}{\sqrt{n}}\\)
+\( P=\bar{X}_n - z_{\frac{\alpha}{2}}*\frac{\sigma}{\sqrt{n}}\se \mu \ge \bar{X}_n + z_{\frac{\alpha}{2}}*\frac{\sigma}{\sqrt{n}} \)
 
 Outline:
 1. Draw random sample from the corresponding distribution, 
 2. Estimate confidence interval,
-3. Check if true \mu is in CI,
+3. Check if true \(\mu\) is in CI,
 4. Repeat m-many times in Monte Carlo Simulation 
 
 ```{r}
-knitr::opts_chunk$set(echo = FALSE)
+library(knitr)
+knitr::opts_chunk$set(echo = TRUE)
 
 mu <- 1
 m <- 10000
