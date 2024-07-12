@@ -20,7 +20,7 @@ n <- nrow(data)
 beta_est <- matrix(numeric(M))
 alpha <- 0.05
 
-# Define bootstrap function that gives the estimate (random design)
+# Define bootstrap function for random design:
 bootstrap_func <- function(data){
         bootstrap_sample <- data[sample(1:n,n,replace=TRUE),]
         reg_m <- lm(Y ~ X, data=bootstrap_sample)
@@ -71,7 +71,7 @@ for (i in 1:M){
     beta_est_f[i] <- bootstrap_func_f(data)
 }
 
-CIf <- matrix(numeric(n),nrow=1,ncol=3)
+CIf <- matrix(nrow=1,ncol=3)
 beta_quant <- quantile(beta_est_f,c(1-alpha/2,alpha))
 CIf[,2] <- 2*coef(reg)["X"]-beta_quant[1]
 CIf[,3] <- 2*coef(reg)["X"]-beta_quant[2]
