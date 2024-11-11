@@ -49,7 +49,7 @@ hist <- ggplot(data.frame(beta_est), aes(x = beta_est)) +
   )  
 
 print(hist)
-ggsave("bootstrap_est_reg_random.png",plot=hist,path="C:/Users/jonas/Documents/Economics Bonn/Computational Statistics")
+ggsave("bootstrap_est_reg_random.png",plot=hist,path="C:/Users/jonas/Documents/Economics_Bonn/Statistics/Computational Statistics")
 
 
 # Bootstrap function for fixed design:
@@ -92,4 +92,4 @@ hist <- ggplot(data.frame(beta_est_f), aes(x = beta_est_f)) +
   )  
 
 print(hist)
-ggsave("bootstrap_est_reg_fixed.png",plot=hist,path="C:/Users/jonas/Documents/Economics Bonn/Computational Statistics")
+ggsave("bootstrap_est_reg_fixed.png",plot=hist,path="C:/Users/jonas/Documents/Economics_Bonn/Statistics/Computational Statistics")
