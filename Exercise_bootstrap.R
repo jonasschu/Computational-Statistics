@@ -73,6 +73,7 @@ toc()
 ## The coverage prob is quite low with 0.855 and thus the CI invalid
 
 # c. Bootstrap-t confidence interval 
+library("tictoc")
 tic()
 mu <- 1
 M <- 1000
